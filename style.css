@@ -1,0 +1,254 @@
+/* --- Modern Font & Base Styles --- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg-color: #121212;
+  --surface-color: #1e1e1e;
+  --border-color: #2c2c2c;
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --text-primary: #e6e6e6;
+  --text-secondary: #a0a0a0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+/* --- App Layout --- */
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Carousel Section --- */
+.carousel-container {
+  position: relative;
+  border-radius: 16px;
+  margin-bottom: 50px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+}
+
+.carousel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  flex: 1 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 450px;
+  padding: 60px;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+/* Dark overlay for better text readability on images */
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.6) 40%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  z-index: 1;
+}
+
+.carousel-content {
+  position: relative;
+  z-index: 2;
+  max-width: 50%;
+}
+
+.eyebrow-text {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.carousel-content h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0 0 16px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.carousel-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 0 0 24px;
+  max-width: 600px;
+}
+
+.cta-button {
+  padding: 14px 28px;
+  font-size: 1.1rem;
+}
+
+/* Carousel Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-arrow.prev {
+  left: 15px;
+}
+.carousel-arrow.next {
+  right: 15px;
+}
+
+/* --- Section Title --- */
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* --- Video Grid & Cards --- */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.card-thumbnail {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.card-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  flex-grow: 1;
+  margin: 0 0 20px;
+}
+
+/* --- Button (now an <a> tag) --- */
+.watch-button {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+  align-self: flex-start; /* Align button to the left */
+}
+
+.watch-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.watch-button svg {
+  margin-bottom: -2px;
+}
+
+/* --- Footer --- */
+.app-footer {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .slide {
+    padding: 30px;
+    justify-content: center;
+    text-align: center;
+  }
+  .carousel-content {
+    max-width: 100%;
+  }
+  .carousel-content h1 {
+    font-size: 2rem;
+  }
+  .carousel-description {
+    font-size: 1rem;
+  }
+  .watch-button {
+    align-self: center;
+  }
+  .card .watch-button {
+    align-self: flex-start;
+  }
+}
